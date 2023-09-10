@@ -28,8 +28,28 @@ var userSchema = new mongoose.Schema({
     role:{
         type: String,
         default:"user"
-    }
-});
+    },
+    isBlocked: {
+       type: Boolean,
+       default: false
+    },
+    cart: {
+        type: Array,
+        default: []
+    },
+    address:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Address"
+    }],
+    wishlist:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref:"Product"
+    }]
+},
+{
+    timestamps:true
+}
+);
 
 //to store hash password in db
 userSchema.pre("save", async function(next){
