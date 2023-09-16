@@ -263,6 +263,7 @@ const removeSingleUser = asyncHandler(async(req, res)=>{
     user.passwordResetExpires = undefined;
     await user.save();
     res.json(user);
- })
+ });
+
 
 module.exports = {createUser, loginUser, getAllUsers, getSingleUser, removeSingleUser, updateUser, blockUser, unblockUser, handleRefreshToken, logoutHandler, updatePassword, forgotPasswordToken, resetPassword};
