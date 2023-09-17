@@ -6,6 +6,9 @@ const PORT = process.env.PORT || 5000;
 const authRoute = require("./routes/authRoutes");
 const productRoute = require("./routes/productRoutes");
 const blogRoutes = require("./routes/blogRoutes");
+const productCategoryRoutes = require('./routes/productCategoryRoute');
+const blogCategoryRoutes = require('./routes/blogCategoryRoute');
+const brandRoutes = require('./routes/brandRoute');
 const bodyParser = require('body-parser');
 const {notFound, errorHandler } = require('./middlewares/errorHandler');
 const cookieParser =  require('cookie-parser');
@@ -26,6 +29,10 @@ app.use(cookieParser());
 app.use("/api/user", authRoute);
 app.use("/api/product", productRoute);
 app.use("/api/blog", blogRoutes);
+app.use("/api/category", productCategoryRoutes);
+app.use("/api/bcategory", blogCategoryRoutes);
+app.use("/api/brand", brandRoutes);
+
 
 //error handler
 app.use(notFound);
