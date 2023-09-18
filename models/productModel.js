@@ -41,9 +41,7 @@ var productSchema = new mongoose.Schema({
       default:0,
     //   select:false  to hide in response
     },
-    images:{
-        type: Array
-    },
+    images:[],
     color: {
         type: String,
         // enum: ['Black', 'Brown', "Red"]
